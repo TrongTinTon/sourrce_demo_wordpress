@@ -1,0 +1,92 @@
+.filter_varidation_container {
+    display: flex;
+    flex-flow: column;
+    gap: 8px;
+}
+
+.filter_varidation_container .filter_varidation_item, .filter_varidation_item input, .filter_varidation_container .filter_varidation_item label {
+    cursor: pointer;
+}
+
+.filter_varidation_container .active {
+    background: url('https://himag.com.vn/wp-content/uploads/2024/01/checkbox_checked.png') 10px 6px no-repeat !important;
+    padding-left: 33px !important;
+    
+}
+.filter_varidation_container .filter_varidation_item {
+    background: url('https://himag.com.vn/wp-content/uploads/2024/01/checkbox_unchecked.png') 10px 6px no-repeat;
+    padding-left: 33px !important;
+}
+
+.filter_varidation_container .filter_varidation_item label {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.filter_varidation_container .filter_varidation_item:hover {
+    background: url('https://himag.com.vn/wp-content/uploads/2024/01/checkbox_unchecked_hover.png') 10px 6px no-repeat;
+    padding-left: 33px !important;
+}
+
+.loading-cat {
+    opacity: 0.5;
+}
+
+.nav-pagination>li>.page-number, .nav-pagination>li>span {
+    border: 2px solid;
+    border-radius: 99px;
+    display: block;
+    font-size: 1.1em;
+    font-weight: bolder;
+    height: 2.25em;
+    line-height: 2em;
+    min-width: 2.25em;
+    padding: 0 7px;
+    text-align: center;
+    transition: all .3s;
+    vertical-align: top;
+    width: auto;
+}
+
+.nav-pagination>li>.current, .nav-pagination>li>.page-number:hover {
+    background-color: #446084;
+    border-color: #446084;
+    color: #fff !important;
+}
+.nav-pagination>li>span:hover{
+    cursor: default !important;
+}
+.nav-pagination>li>.page-number:hover {
+    cursor: pointer;
+}
+
+ul.links li .page-number {
+    color: currentColor;
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}
+
+.skeleton {
+    background: #eee;
+    background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%) ;
+    background-size: 200% 100% ;
+    animation: 1.5s shine linear infinite;
+    -webkit-animation: 1.5s shine linear infinite;
+    display: block !important;
+ 
+}
+.empty-product {
+    text-align: center;
+}
+.empty-product-title {
+    font-size: 16px;
+    background: linear-gradient(110deg,#e4e3e9, #f7f7f7);
+    padding: 10px;
+    border-radius: 16px;
+    font-weight: 600;
+    color: #111;
+}
