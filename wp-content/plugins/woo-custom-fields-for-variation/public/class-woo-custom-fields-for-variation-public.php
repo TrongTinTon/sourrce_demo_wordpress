@@ -86,8 +86,10 @@ class Woo_Custom_Fields_For_Variation_Public {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-
+    	
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/woo-custom-fields-for-variation-public.css', array(), $this->version, 'all' );
+
+
 
 	}
 
@@ -113,6 +115,8 @@ class Woo_Custom_Fields_For_Variation_Public {
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/woo-custom-fields-for-variation-public.js', array( 'jquery' ), $this->version, false );
 
 		wp_enqueue_script("phoen-custom-field-variation-script",plugin_dir_url( __FILE__ )."js/options.js",array('jquery'),'',false);
+
+		
 
 	}
 
@@ -156,7 +160,7 @@ class Woo_Custom_Fields_For_Variation_Public {
 			$this->phoen_script_var_add();
 			
 			$get_variation_ids = $product->get_children();
-			 
+		
 			foreach($get_variation_ids as $variation_id){
 				 
 				$this->phoen_show_custom_field_data($variation_id);
@@ -180,7 +184,11 @@ class Woo_Custom_Fields_For_Variation_Public {
     	if(isset($variation_data) && is_array($variation_data)):
 
     		foreach($variation_data as $key => $value):
-
+    			
+    			if (isset($value['name']) == 'custom_color_field') {
+    				wp_enqueue_script("custom_color_field-jscolor-script",plugin_dir_url( __FILE__ )."js/jscolor.js",array('jquery'),'',false);
+					wp_enqueue_script("custom_color_field-script",plugin_dir_url( __FILE__ )."js/custom-color-field.js",array('jquery'),'',false);
+    			}
     			if ( isset($value['name']) && empty( $value['name'] ) ):
     				unset( $variation_data[ $key ] );		
 					continue;
@@ -198,6 +206,8 @@ class Woo_Custom_Fields_For_Variation_Public {
     		$this->phoen_get_text_field($value,$variation_id);
     	elseif(isset($type) && $type === 'custom_textarea'):
     		$this->phoen_get_text_area_field($value,$variation_id);
+    	elseif(isset($type) && $type === 'custom_color_field'):
+    		$this->phoen_get_color_field($value,$variation_id);
     	endif;
     }
 
@@ -209,6 +219,10 @@ class Woo_Custom_Fields_For_Variation_Public {
     private function phoen_get_text_area_field($options,$variation_id){
 
     	include(PHOEN_CUSTOM_VARIATION_DIR_PATH.'public/template/custom_textareas.php');
+    }
+
+    private function phoen_get_color_field($options,$variation_id){
+    	include(PHOEN_CUSTOM_VARIATION_DIR_PATH.'public/template/custom_color_field.php');
     }
 
     public function phoen_script_var_add(){ 

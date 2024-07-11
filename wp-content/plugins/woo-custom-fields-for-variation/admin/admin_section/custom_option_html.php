@@ -6,7 +6,10 @@
 		<strong><?php _e( 'Option', 'custom-variation' ); ?> <span class="group_name"><?php if ( $option['name'] ) echo '"' . esc_attr( $option['name'] ) . '"'; ?></span> &mdash; </strong>
 		<select name="product_option_type[<?php echo $variation_id; ?>][<?php echo $loop; ?>]" class="product_option_type">
 			<option <?php selected('custom_field', $option['type']); ?> value="custom_field"><?php _e('Custom input (text field)', 'custom-variation'); ?></option>
+
 			<option <?php selected('custom_textarea', $option['type']); ?> value="custom_textarea"><?php _e('Custom input (text area)', 'custom-variation'); ?></option>
+
+			<option <?php selected('custom_color_field', $option['type']); ?> value="custom_color_field"><?php _e('Custom input (color field)', 'custom-variation'); ?></option>
 		</select>
 		<input type="hidden" name="product_option_position[<?php echo $variation_id; ?>][<?php echo $loop; ?>]" class="product_option_position" value="<?php echo $loop; ?>" />
 	</h3>

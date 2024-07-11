@@ -1,8 +1,8 @@
 jQuery( document ).ready( function($) {
 	
-	
-	$(this).on( 'change', '.custom_field, .custom_textarea, input.qty', function() {
 		
+	$(this).on( 'change', '.custom_color_field, .custom_field, .custom_textarea, input.qty', function() {
+	
 		$(this).trigger( 'show_options_final_total' );
 				
 	});
@@ -12,6 +12,7 @@ jQuery( document ).ready( function($) {
 	 $(this).trigger( 'show_options_final_total' );
 			
 	})();
+			
 	
 		jQuery(document).on( 'found_variation', 'form.cart', function( event, variation ) {
 			
@@ -30,10 +31,11 @@ jQuery( document ).ready( function($) {
 			}
 			
 			$variation_form.trigger( 'show_options_final_total' );
+
 	} );
 	
 	$(this).on( 'show_options_final_total', function() {
-	
+		
 		var option_total = 0;
 
 		var product_price = $(this).find( '#product-options-var-total' ).data( 'product-price' );
@@ -51,9 +53,9 @@ jQuery( document ).ready( function($) {
 		var product_total_price = 0;
 		
 		var final_total = 0;
-		
+		var custom_color_field_count = 0;
 		$('.custom-variation').each( function() {
-			
+	
 			var option_price = 0;
 			
 			option_price = $(this).attr('data-price');
@@ -63,7 +65,7 @@ jQuery( document ).ready( function($) {
 			{
 				option_total = parseFloat( option_total ) + parseFloat( option_price );
 			}
-			
+
 		});
 		
 		var qty = $('.qty').val();
@@ -163,6 +165,7 @@ jQuery( document ).ready( function($) {
 				jQuery(this).find('textarea').val('');
 				
 				jQuery(this).css('display','none');
+
 				
 			});
 		}	

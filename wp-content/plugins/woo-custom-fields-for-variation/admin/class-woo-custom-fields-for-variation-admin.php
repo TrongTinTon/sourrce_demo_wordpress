@@ -483,7 +483,7 @@ class Woo_Custom_Fields_For_Variation_Admin {
 				$product_custom_options = array();
 				
 				if ( isset( $_POST[ 'product_option_name' ][$vvgat_id] ) && !empty($_POST[ 'product_option_name' ][$vvgat_id]) ) {
-						
+					
 					$option_name  =isset($_POST['product_option_name'][$vvgat_id])? array_map( 'sanitize_text_field', $_POST['product_option_name'][$vvgat_id] ):'';
 					
 					$option_type  =isset($_POST['product_option_type'][$vvgat_id])? array_map( 'sanitize_text_field', $_POST['product_option_type'][$vvgat_id] ):'';

@@ -19,5 +19,12 @@ if(isset($_POST['custom-variation'][sanitize_title( $options['name'] )])){
 		$show .= "</label>";
 	endif; ?>
 	<?= _e($show) ?>
-	<input type="text" class="input-text custom-variation custom_field" data-price="<?php echo $options['price'] ? $options['price'] : '0'; ?>" name="custom-variation[<?php echo $variation_id; ?>][<?php echo sanitize_title( $option_name ); ?>]" value="<?php if( ! empty($entered_data) ){ echo $entered_data; } ?>" <?php if ( ! empty( $options['max'] ) ) echo 'maxlength="' . $options['max'] .'"'; ?>  />
+
+	
+
+	<input id="color-input-<?php echo $variation_id.'-'.$option_name; ?>" type="text" class="input-text custom-variation custom_color_field" data-price="<?php echo $options['price'] ? $options['price'] : '0'; ?>" name="custom-variation[<?php echo $variation_id; ?>][<?php echo sanitize_title( $option_name ); ?>]" value="<?php if( ! empty($entered_data) ){ echo $entered_data; } ?>" <?php if ( ! empty( $options['max'] ) ) echo 'maxlength="' . $options['max'] .'"'; ?>  />
+	
+	<input class="chose-color-press" value="#e6e6e6" data-jscolor="{alpha:0.7}" onChange="updateValue(this,'#color-input-<?php echo $variation_id.'-'.$option_name; ?>')" onInput="updateBackground(this,'#set-bg-<?php echo $variation_id.'-'.$option_name; ?>')">
+	<em id="set-bg-<?php echo $variation_id.'-'.$option_name; ?>" style="display:inline-block; padding:1em;background:#e6e6e6;">input event pr4</em>
 </p>
+
