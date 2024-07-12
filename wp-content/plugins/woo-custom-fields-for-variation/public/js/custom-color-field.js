@@ -28,7 +28,6 @@ document.querySelectorAll('.color-input-label').forEach(function(label){
 	    event.stopPropagation(); // Ngăn chặn sự kiện click trên SVG
 		    var inputEle = document.getElementById(this.getAttribute('data-input'))
 		    inputEle.jscolor.show()
-		    console.log(inputEle)
 		    // parentElement.jscolor.show(); // Gọi sự kiện click trên thẻ cha
 	});
 })

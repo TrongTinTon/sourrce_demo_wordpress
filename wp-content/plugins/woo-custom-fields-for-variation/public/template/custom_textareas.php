@@ -9,7 +9,7 @@ if(isset($_POST['custom-variation'][sanitize_title( $options['name'] )])){
 	$entered_data = str_replace('\"','"',$entered_data);
 	$entered_data = str_replace("\'","'",$entered_data);	
 } ?>
-<p class="phoen_minss phoenwwe_<?php echo $variation_id; ?> form-row form-row-wide custom_<?php echo sanitize_title( $options['name'] ); ?>" style="display:none;">
+<div class="phoen_minss phoenwwe_<?php echo $variation_id; ?> form-row form-row-wide custom_<?php echo sanitize_title( $options['name'] ); ?>" style="display:none;">
 	<?php if ( ! empty( $options['label'] ) ) :
 		$show  = "<label>";
 		$show .= wptexturize( $options['label'] ) . ' ' . $price; 
@@ -17,5 +17,10 @@ if(isset($_POST['custom-variation'][sanitize_title( $options['name'] )])){
 		$show .= "</label>";
 	endif; ?>
 	<?= _e($show) ?>
-	<textarea class="input-text custom-variation custom_textarea" data-price="<?php echo $options['price'] ? $options['price'] : '0'; ?>" name="custom-variation[<?php echo $variation_id; ?>][<?php echo sanitize_title( $option_name ); ?>]"  <?php if ( ! empty( $options['max'] ) ) echo 'maxlength="' . $options['max'] .'"'; ?> ><?php if( ! empty($entered_data) ){ echo $entered_data; } ?></textarea>
-</p>
+	<div class="custom-field-variation-container custom-field-variation-container">
+		<label for="custom-variation[<?php echo $variation_id; ?>][<?php echo sanitize_title( $option_name ); ?>]" class="custom-field-variation-label" data-input="<?php echo $variation_id.'-'.$option_name; ?>-remote-input">
+	   		<img src="<?php echo plugin_dir_url( __FILE__ )."../image/edit.svg" ?>">
+	   	</label>
+		<textarea  rows="4"  id="custom-variation[<?php echo $variation_id; ?>][<?php echo sanitize_title( $option_name ); ?>]" class="textarea custom-variation custom_textarea" data-price="<?php echo $options['price'] ? $options['price'] : '0'; ?>" name="custom-variation[<?php echo $variation_id; ?>][<?php echo sanitize_title( $option_name ); ?>]"  <?php if ( ! empty( $options['max'] ) ) echo 'maxlength="' . $options['max'] .'"'; ?> ><?php if( ! empty($entered_data) ){ echo $entered_data; } ?></textarea>
+	</div>
+</div>

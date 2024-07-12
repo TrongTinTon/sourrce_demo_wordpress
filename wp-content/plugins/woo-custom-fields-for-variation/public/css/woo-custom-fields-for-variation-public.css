@@ -2,3 +2,73 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
+
+.variations_button {
+	display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.custom-field-variation-container {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+.custom-field-variation-container .color-input-text {
+	width: 70px;
+	height: 25px;
+	padding: 0;
+	margin: 0;
+}
+.custom-field-variation-container .input-text {
+	min-width: 70px;
+	width: 127px;
+	height: 25px;
+	padding: 0;
+	margin: 0;
+}
+.custom-field-variation-container textarea {
+	height: auto ;
+	min-height: 25px;
+	padding: 0;
+	margin: 0;
+	min-width: 70px;
+	width: 127px;
+}
+
+.custom-field-variation-container textarea::-webkit-scrollbar {
+    width: 15px;
+    height: 20px;
+    background-color: #ffffff;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+}
+
+.custom-field-variation-container textarea::-webkit-scrollbar-thumb {
+    background-color: rgba(214, 222, 225, 0.53);
+    border-radius: 20px;
+    border: 4px solid transparent;
+    background-clip: content-box;
+    transition: transform 0.2s ease, background-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 200ms;
+}
+
+.custom-field-variation-container textarea::-webkit-scrollbar-thumb:hover {
+    background-color: #ccd5d8;
+}
+
+.color-review-bg {
+	display:inline-block;background:#e6e6e6;
+}
+.color-review-bg {
+	min-width: 3em;
+	height: 25px;
+	border-radius: 4px;
+	border: 1px solid #e6e6e6;
+}
+.custom-field-variation-label {
+	cursor: pointer;
+	margin: 0 !important;
+}
+.custom-field-variation-label:active, .custom-field-variation-label svg:active {
+	transform: scale(1.03);
+	transition: all 0.2s ease;
+}
